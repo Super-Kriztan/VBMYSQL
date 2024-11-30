@@ -55,7 +55,8 @@ Partial Class Form1
         ' 
         Label2.AutoSize = True
         Label2.Font = New Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Label2.Location = New Point(192, 236)
+        Label2.ForeColor = SystemColors.ActiveCaptionText
+        Label2.Location = New Point(191, 251)
         Label2.Name = "Label2"
         Label2.Size = New Size(145, 27)
         Label2.TabIndex = 2
@@ -70,7 +71,7 @@ Partial Class Form1
         ' 
         ' PassTextBox2
         ' 
-        PassTextBox2.Location = New Point(434, 236)
+        PassTextBox2.Location = New Point(434, 251)
         PassTextBox2.Name = "PassTextBox2"
         PassTextBox2.PasswordChar = "*"c
         PassTextBox2.Size = New Size(200, 27)
@@ -80,7 +81,7 @@ Partial Class Form1
         ' 
         Button2.BackColor = SystemColors.Info
         Button2.Font = New Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
-        Button2.Location = New Point(491, 315)
+        Button2.Location = New Point(489, 334)
         Button2.Name = "Button2"
         Button2.Size = New Size(96, 35)
         Button2.TabIndex = 5
@@ -91,6 +92,7 @@ Partial Class Form1
         ' 
         AutoScaleDimensions = New SizeF(8F, 20F)
         AutoScaleMode = AutoScaleMode.Font
+        BackgroundImageLayout = ImageLayout.Stretch
         ClientSize = New Size(800, 450)
         Controls.Add(Button2)
         Controls.Add(PassTextBox2)

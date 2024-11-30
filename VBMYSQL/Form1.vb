@@ -6,9 +6,9 @@ Public Class Form1
     Dim reader As MySqlDataReader
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-        conn = New MySqlConnection
-        conn.ConnectionString = "server=localhost;userid=root;password='';database=mysqlconnection"
+        conn = New MySqlConnection With {
+            .ConnectionString = "server=localhost;userid=root;password='';database=vbmysql"
+        }
 
         Try
 
@@ -42,7 +42,7 @@ Public Class Form1
         Try
 
             conn.Open()
-            Dim query As String = "SELECT * FROM User WHERE Username = @Username AND Password = @Password"
+            Dim query As String = "SELECT * FROM Users WHERE Username = @Username AND Password = @Password"
             command = New MySqlCommand(query, conn)
 
 
@@ -59,12 +59,34 @@ Public Class Form1
 
             If count = 1 Then
                 MessageBox.Show("Username and Password are correct")
+                Form2.Show()
+                Me.Hide()
+
             ElseIf count > 1 Then
                 MessageBox.Show("Username and Password are Duplicate")
+
             Else
                 MessageBox.Show("Username and Password are not correct")
             End If
 
+        Catch ex As Exception
+
+            MessageBox.Show(ex.Message)
+        Finally
+
+            conn.Close()
+        End Try
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        conn = New MySqlConnection With {
+           .ConnectionString = "server=localhost;userid=root;password='';database=vbmysql"
+       }
+
+        Try
+
+            conn.Open()
+            MessageBox.Show("Connection Successful")
         Catch ex As Exception
 
             MessageBox.Show(ex.Message)
